@@ -1,4 +1,4 @@
-import 'package:calculator/modules/calculator/cubit/calculator_cubit.dart';
+import 'package:calculator/modules/calculator/cubit/calculation/calculation_cubit.dart';
 import 'package:calculator/res/color_codes.dart';
 import 'package:calculator/res/regex.dart';
 import 'package:calculator/res/styles.dart';
@@ -13,7 +13,7 @@ class CalculatorDisplayWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CalculatorCubit, CalculatorState>(
+    return BlocBuilder<CalculationCubit, CalculationState>(
         builder: (context, state) {
       return Container(
         margin: EdgeInsets.only(bottom: 5.0.w),

@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
-  static Route? onGenerates(RouteSettings settings) {
+  static Route? onGenerate(RouteSettings settings) {
     switch (settings.name) {
       case Constants.CALCULATOR_ROUTE:
         return MaterialPageRoute(
