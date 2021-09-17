@@ -72,7 +72,11 @@ class _KeyPadWidgetState extends State<KeyPadWidget> {
               style: Styles.textStyles(
                   color: ColorCodes.GREY_COLOR, textSize: 17.0.sp),
             ),
-            onTap: () {}),
+            onTap: () {
+              setState(() {
+                expression = expression + " ${Strings.PERCENTAGE} ";
+              });
+            }),
         CustomNeumorphicButton(
             child: Text(
               Strings.DIVIDE,
