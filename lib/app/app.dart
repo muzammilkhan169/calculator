@@ -1,6 +1,7 @@
 import 'package:calculator/app/app_routes.dart';
 import 'package:calculator/modules/calculator/cubit/calculation/calculation_cubit.dart';
 import 'package:calculator/modules/calculator/cubit/keypad/keypad_cubit.dart';
+import 'package:calculator/modules/theme/themes.dart';
 import 'package:calculator/res/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +18,10 @@ class App extends StatelessWidget {
           BlocProvider(create: (context) => CalculationCubit()),
           BlocProvider(create: (context) => KeypadCubit()),
         ],
-        child: const MaterialApp(
+        child: MaterialApp(
+          theme: Themes.lightTheme,
+          darkTheme: Themes.darkTheme,
+          themeMode: ThemeMode.light,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: AppRoutes.onGenerate,
           title: Strings.APP_NAME,

@@ -8,20 +8,12 @@ class CalculatorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: appBarWidget(), body: bodyWidget());
-  }
-
-  appBarWidget() {
-    return AppBar(
-      backgroundColor: ColorCodes.WHITE_COLOR,
-      elevation: 0,
-    );
+    return Scaffold(body: bodyWidget());
   }
 
   bodyWidget() {
     return Container(
       padding: const EdgeInsets.all(15),
-      color: ColorCodes.WHITE_COLOR,
       child: Column(
         children: const [
           Expanded(

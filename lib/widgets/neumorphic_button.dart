@@ -1,3 +1,4 @@
+import 'package:calculator/res/color_codes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:sizer/sizer.dart';
@@ -24,19 +25,18 @@ class CustomNeumorphicButton extends StatelessWidget {
           width: width ?? 13.5.w,
           child: Center(child: child)),
       onPressed: onTap,
-      style: buttonStyles(),
+      style: buttonStyles(context),
     );
   }
 
-  NeumorphicStyle buttonStyles() {
+  NeumorphicStyle buttonStyles(BuildContext context) {
     return NeumorphicStyle(
       boxShape: isRounded
           ? const NeumorphicBoxShape.circle()
           : NeumorphicBoxShape.roundRect(BorderRadius.circular(40)),
-      depth: 5,
-      surfaceIntensity: 1,
+      depth: 3,
       lightSource: LightSource.topLeft,
-      color: Colors.white,
+      color: Theme.of(context).canvasColor,
     );
   }
 }

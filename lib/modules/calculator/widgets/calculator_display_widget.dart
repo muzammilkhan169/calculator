@@ -1,6 +1,5 @@
 import 'package:calculator/modules/calculator/cubit/calculation/calculation_cubit.dart';
 import 'package:calculator/res/color_codes.dart';
-import 'package:calculator/res/regex.dart';
 import 'package:calculator/res/styles.dart';
 import 'package:calculator/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,15 +18,13 @@ class CalculatorDisplayWidget extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 5.0.w),
         alignment: Alignment.bottomRight,
         child: Text(
-         Utils. removeTrailingZeros(state.answer.toString()),
+          Utils.removeTrailingZeros(state.answer.toString()),
           style: Styles.textStyles(
-            color: ColorCodes.BLACK_COLOR,
+            color: Theme.of(context).primaryColor,
             textSize: 50.0.sp,
           ),
         ),
       );
     });
   }
-
-  
 }

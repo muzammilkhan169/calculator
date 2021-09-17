@@ -97,7 +97,7 @@ class KeyPadWidget extends StatelessWidget {
             child: Text(
               Strings.KEYPAD_7,
               style: Styles.textStyles(
-                  color: ColorCodes.BLACK_COLOR, textSize: 17.0.sp),
+                  color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
               context
@@ -108,7 +108,7 @@ class KeyPadWidget extends StatelessWidget {
             child: Text(
               Strings.KEYPAD_8,
               style: Styles.textStyles(
-                  color: ColorCodes.BLACK_COLOR, textSize: 17.0.sp),
+                  color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
               context
@@ -119,7 +119,7 @@ class KeyPadWidget extends StatelessWidget {
             child: Text(
               Strings.KEYPAD_9,
               style: Styles.textStyles(
-                  color: ColorCodes.BLACK_COLOR, textSize: 17.0.sp),
+                  color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
               context
@@ -147,7 +147,7 @@ class KeyPadWidget extends StatelessWidget {
             child: Text(
               Strings.KEYPAD_4,
               style: Styles.textStyles(
-                  color: ColorCodes.BLACK_COLOR, textSize: 17.0.sp),
+                  color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
               context
@@ -158,7 +158,7 @@ class KeyPadWidget extends StatelessWidget {
             child: Text(
               Strings.KEYPAD_5,
               style: Styles.textStyles(
-                  color: ColorCodes.BLACK_COLOR, textSize: 17.0.sp),
+                  color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
               context
@@ -169,7 +169,7 @@ class KeyPadWidget extends StatelessWidget {
             child: Text(
               Strings.KEYPAD_6,
               style: Styles.textStyles(
-                  color: ColorCodes.BLACK_COLOR, textSize: 17.0.sp),
+                  color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
               context
@@ -199,7 +199,7 @@ class KeyPadWidget extends StatelessWidget {
             child: Text(
               Strings.KEYPAD_1,
               style: Styles.textStyles(
-                  color: ColorCodes.BLACK_COLOR, textSize: 17.0.sp),
+                  color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
               context
@@ -210,7 +210,7 @@ class KeyPadWidget extends StatelessWidget {
             child: Text(
               Strings.KEYPAD_2,
               style: Styles.textStyles(
-                  color: ColorCodes.BLACK_COLOR, textSize: 17.0.sp),
+                  color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
               context
@@ -221,7 +221,7 @@ class KeyPadWidget extends StatelessWidget {
             child: Text(
               Strings.KEYPAD_3,
               style: Styles.textStyles(
-                  color: ColorCodes.BLACK_COLOR, textSize: 17.0.sp),
+                  color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
               context
@@ -253,7 +253,7 @@ class KeyPadWidget extends StatelessWidget {
             child: Text(
               Strings.KEYPAD_0,
               style: Styles.textStyles(
-                  color: ColorCodes.BLACK_COLOR, textSize: 17.0.sp),
+                  color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
               context
@@ -264,7 +264,7 @@ class KeyPadWidget extends StatelessWidget {
             child: Text(
               Strings.POINT,
               style: Styles.textStyles(
-                  color: ColorCodes.BLACK_COLOR, textSize: 17.0.sp),
+                  color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
               context
