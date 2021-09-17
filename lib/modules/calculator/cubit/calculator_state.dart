@@ -1,6 +1,6 @@
 part of 'calculator_cubit.dart';
 
-@immutable
-abstract class CalculatorState {}
-
-class CalculatorInitial extends CalculatorState {}
+class CalculatorState {
+  final double answer;
+  CalculatorState({required this.answer});
+}
