@@ -1,4 +1,3 @@
-import 'package:calculator/res/color_codes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:sizer/sizer.dart';
@@ -35,7 +34,9 @@ class CustomNeumorphicButton extends StatelessWidget {
           ? const NeumorphicBoxShape.circle()
           : NeumorphicBoxShape.roundRect(BorderRadius.circular(40)),
       depth: 3,
-      lightSource: LightSource.topLeft,
+      lightSource: ThemeMode.system == ThemeMode.light
+          ? LightSource.bottomRight
+          : LightSource.topLeft,
       color: Theme.of(context).canvasColor,
     );
   }

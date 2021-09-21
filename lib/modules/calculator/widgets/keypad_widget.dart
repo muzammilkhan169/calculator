@@ -3,6 +3,7 @@ import 'package:calculator/modules/calculator/cubit/keypad/keypad_cubit.dart';
 import 'package:calculator/res/color_codes.dart';
 import 'package:calculator/res/strings.dart';
 import 'package:calculator/res/styles.dart';
+import 'package:calculator/utils/utils.dart';
 import 'package:calculator/widgets/neumorphic_button.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -72,7 +73,7 @@ class KeyPadWidget extends StatelessWidget {
             onTap: () {
               context
                   .read<KeypadCubit>()
-                  .updateExpression(expression: " ${Strings.PERCENTAGE} ");
+                  .updateExpression(expression: Strings.PERCENTAGE);
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -83,7 +84,7 @@ class KeyPadWidget extends StatelessWidget {
             onTap: () {
               context
                   .read<KeypadCubit>()
-                  .updateExpression(expression: " ${Strings.DIVIDE} ");
+                  .updateExpression(expression: Strings.DIVIDE);
             }),
       ],
     );
@@ -133,7 +134,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: ColorCodes.ORANGE_COLOR, textSize: 17.0.sp),
             ),
             onTap: () {
-              context.read<KeypadCubit>().updateExpression(expression: " * ");
+              context.read<KeypadCubit>().updateExpression(expression: "*");
             })
       ],
     );
@@ -185,7 +186,7 @@ class KeyPadWidget extends StatelessWidget {
             onTap: () {
               context
                   .read<KeypadCubit>()
-                  .updateExpression(expression: " ${Strings.MINUS} ");
+                  .updateExpression(expression: Strings.MINUS);
             })
       ],
     );
@@ -237,7 +238,7 @@ class KeyPadWidget extends StatelessWidget {
             onTap: () {
               context
                   .read<KeypadCubit>()
-                  .updateExpression(expression: " ${Strings.PLUS} ");
+                  .updateExpression(expression: Strings.PLUS);
             })
       ],
     );
@@ -278,9 +279,21 @@ class KeyPadWidget extends StatelessWidget {
                   color: ColorCodes.ORANGE_COLOR, textSize: 17.0.sp),
             ),
             onTap: () {
-              context.read<CalculationCubit>().evaluateExpression(
-                  expression: context.read<KeypadCubit>().getExpression());
-              context.read<KeypadCubit>().resetExpression();
+              if (Utils.checkMathematicalExpression(
+                  context.read<KeypadCubit>().getExpression())) {
+                context.read<CalculationCubit>().evaluateExpression(
+                    expression: context.read<KeypadCubit>().getExpression());
+                context.read<KeypadCubit>().resetExpression();
+              } else {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const AlertDialog(
+                        title: Text(Strings.OOPS),
+                        content: Text(Strings.INCORRECT_EXPRESSION),
+                      );
+                    });
+              }
             })
       ],
     );

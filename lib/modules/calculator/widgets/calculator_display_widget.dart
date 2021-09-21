@@ -1,5 +1,4 @@
 import 'package:calculator/modules/calculator/cubit/calculation/calculation_cubit.dart';
-import 'package:calculator/res/color_codes.dart';
 import 'package:calculator/res/styles.dart';
 import 'package:calculator/utils/utils.dart';
 import 'package:flutter/cupertino.dart';

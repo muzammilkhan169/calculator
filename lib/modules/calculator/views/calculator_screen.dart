@@ -1,6 +1,5 @@
 import 'package:calculator/modules/calculator/widgets/calculator_display_widget.dart';
 import 'package:calculator/modules/calculator/widgets/keypad_widget.dart';
-import 'package:calculator/res/color_codes.dart';
 import 'package:flutter/material.dart';
 
 class CalculatorScreen extends StatelessWidget {

@@ -27,4 +27,9 @@ class Strings {
   static const String KEYPAD_7 = "7";
   static const String KEYPAD_8 = "8";
   static const String KEYPAD_9 = "9";
+
+  //error messages
+  static const String INCORRECT_EXPRESSION =
+      "This expression is mathematically incorrect!";
+  static const String OOPS = "OOPS";
 }
