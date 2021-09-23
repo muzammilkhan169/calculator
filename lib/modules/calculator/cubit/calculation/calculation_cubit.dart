@@ -10,7 +10,10 @@ class CalculationCubit extends Cubit<CalculationState> {
     emit(CalculationState(answer: 0));
   }
 
-  evaluateExpression({required String expression}) {
-    emit(CalculationState(answer: CalculationsHandler().caculate(expression)));
-  }
+  evaluateExpression({required String expression}) => emit(CalculationState(
+      answer:
+          CalculationsHandler().caculateMathematicalExpression(expression)));
+
+  evaluatePercentage({required String expression}) => emit(CalculationState(
+      answer: CalculationsHandler().calculatePercentage(expression)));
 }

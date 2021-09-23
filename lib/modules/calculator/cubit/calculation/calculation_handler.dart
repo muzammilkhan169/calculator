@@ -1,8 +1,13 @@
 import 'package:calculator/res/strings.dart';
 
 class CalculationsHandler {
-  double caculate(String expression) =>
+  double caculateMathematicalExpression(String expression) =>
       _parseMinusSeparatedExpression(expression);
+
+  double calculatePercentage(String expression) =>
+      _parseMinusSeparatedExpression(expression) / 100;
+
+//------------------------------------------------------------------------------
 
   double _parseMinusSeparatedExpression(String expression) {
     List<String> numbersString = expression.split(Strings.MINUS);

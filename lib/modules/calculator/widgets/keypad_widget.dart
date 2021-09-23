@@ -71,9 +71,9 @@ class KeyPadWidget extends StatelessWidget {
                   color: ColorCodes.GREY_COLOR, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.PERCENTAGE);
+              context.read<CalculationCubit>().evaluatePercentage(
+                  expression: context.read<KeypadCubit>().getExpression());
+              context.read<KeypadCubit>().resetExpression();
             }),
         CustomNeumorphicButton(
             child: Text(
