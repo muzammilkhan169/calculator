@@ -134,7 +134,9 @@ class KeyPadWidget extends StatelessWidget {
                   color: ColorCodes.ORANGE_COLOR, textSize: 17.0.sp),
             ),
             onTap: () {
-              context.read<KeypadCubit>().updateExpression(expression: "*");
+              context
+                  .read<KeypadCubit>()
+                  .updateExpression(expression: Strings.MULTIPLY);
             })
       ],
     );

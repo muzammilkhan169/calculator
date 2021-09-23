@@ -12,7 +12,7 @@ class Strings {
   static const String MINUS = "-";
   static const String PERCENTAGE = "%";
   static const String DIVIDE = "/";
-  static const String MULTIPLY = "x";
+  static const String MULTIPLY = "*";
   static const String EQUALS = "=";
   static const String POINT = ".";
 

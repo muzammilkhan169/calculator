@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:function_tree/function_tree.dart';
+import 'package:calculator/modules/calculator/cubit/calculation/calculation_handler.dart';
 
 part 'calculation_state.dart';
 
@@ -11,6 +11,6 @@ class CalculationCubit extends Cubit<CalculationState> {
   }
 
   evaluateExpression({required String expression}) {
-    emit(CalculationState(answer: expression.interpret().toDouble()));
+    emit(CalculationState(answer: CalculationsHandler().caculate(expression)));
   }
 }
