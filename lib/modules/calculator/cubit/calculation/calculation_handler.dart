@@ -1,8 +1,15 @@
 import 'package:calculator/res/strings.dart';
 
 class CalculationsHandler {
-  double caculateMathematicalExpression(String expression) =>
-      _parseMinusSeparatedExpression(expression);
+  double caculateMathematicalExpression(String expression) {
+    if (expression[0] == Strings.PLUS ||
+        expression[0] == Strings.MINUS ||
+        expression[0] == Strings.MULTIPLY ||
+        expression[0] == Strings.DIVIDE) {
+      expression = Strings.KEYPAD_0 + expression;
+    }
+    return _parseMinusSeparatedExpression(expression);
+  }
 
   double calculatePercentage(String expression) =>
       _parseMinusSeparatedExpression(expression) / 100;

@@ -63,7 +63,9 @@ class KeyPadWidget extends StatelessWidget {
               style: Styles.textStyles(
                   color: ColorCodes.GREY_COLOR, textSize: 17.0.sp),
             ),
-            onTap: () {}),
+            onTap: () {
+              context.read<KeypadCubit>().toggleSign();
+            }),
         CustomNeumorphicButton(
             child: Text(
               Strings.PERCENTAGE,
