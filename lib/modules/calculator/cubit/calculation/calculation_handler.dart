@@ -8,7 +8,7 @@ class CalculationsHandler {
         expression[0] == Strings.DIVIDE) {
       expression = Strings.KEYPAD_0 + expression;
     }
-    return _parseMinusSeparatedExpression(expression);
+    return _parsePlusSeparatedExpression(expression);
   }
 
   double calculatePercentage(String expression) =>
@@ -20,7 +20,7 @@ class CalculationsHandler {
     List<String> numbersString = expression.split(Strings.MINUS);
     List<double> listInDouble = [];
     for (int i = 0; i < numbersString.length; i++) {
-      listInDouble.add(_parsePlusSeparatedExpression(numbersString[i]));
+      listInDouble.add(_parseMultiplicationSeparatedExpression(numbersString[i]));
     }
     double result = listInDouble.reduce((acc, no) => acc - no);
     return result;
@@ -31,7 +31,7 @@ class CalculationsHandler {
     List<double> listInDouble = [];
     for (int i = 0; i < numbersString.length; i++) {
       listInDouble
-          .add(_parseMultiplicationSeparatedExpression(numbersString[i]));
+          .add(_parseMinusSeparatedExpression(numbersString[i]));
     }
     double result = listInDouble.reduce((acc, no) => acc + no);
     return result;
