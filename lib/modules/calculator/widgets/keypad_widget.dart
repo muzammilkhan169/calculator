@@ -1,16 +1,18 @@
-import 'package:calculator/modules/calculator/cubit/calculation/calculation_cubit.dart';
-import 'package:calculator/modules/calculator/cubit/keypad/keypad_cubit.dart';
+import 'package:calculator/modules/calculator/controller/calculation/calculation_controller.dart';
+import 'package:calculator/modules/calculator/controller/keypad/keypad_controller.dart';
 import 'package:calculator/res/color_codes.dart';
 import 'package:calculator/res/strings.dart';
 import 'package:calculator/res/styles.dart';
 import 'package:calculator/utils/utils.dart';
 import 'package:calculator/widgets/neumorphic_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class KeyPadWidget extends StatelessWidget {
-  const KeyPadWidget({Key? key}) : super(key: key);
+  KeyPadWidget({Key? key}) : super(key: key);
+  final calculationController = Get.find<CalculationController>();
+  final keypController = Get.find<KeypadController>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,19 +30,15 @@ class KeyPadWidget extends StatelessWidget {
   }
 
   expressionDisplayWidget() {
-    return BlocBuilder<KeypadCubit, KeypadState>(
-      builder: (context, state) {
-        return Container(
-            margin: EdgeInsets.only(bottom: 5.0.w),
-            alignment: Alignment.bottomRight,
-            width: 100.0.w,
-            child: Text(state.expression,
-                style: Styles.textStyles(
-                  color: ColorCodes.ORANGE_COLOR,
-                  textSize: 17.0.sp,
-                )));
-      },
-    );
+    return Container(
+        margin: EdgeInsets.only(bottom: 5.0.w),
+        alignment: Alignment.bottomRight,
+        width: 100.0.w,
+        child: Obx(() => Text(keypController.currentExpression.value,
+            style: Styles.textStyles(
+              color: ColorCodes.ORANGE_COLOR,
+              textSize: 17.0.sp,
+            ))));
   }
 
   firstRow(BuildContext context) {
@@ -54,8 +52,8 @@ class KeyPadWidget extends StatelessWidget {
                   color: ColorCodes.GREY_COLOR, textSize: 17.0.sp),
             ),
             onTap: () {
-              context.read<CalculationCubit>().resetValues();
-              context.read<KeypadCubit>().resetExpression();
+              calculationController.resetValues();
+              keypController.resetExpression();
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -64,7 +62,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: ColorCodes.GREY_COLOR, textSize: 17.0.sp),
             ),
             onTap: () {
-              context.read<KeypadCubit>().toggleSign();
+              keypController.toggleSign();
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -73,9 +71,9 @@ class KeyPadWidget extends StatelessWidget {
                   color: ColorCodes.GREY_COLOR, textSize: 17.0.sp),
             ),
             onTap: () {
-              context.read<CalculationCubit>().evaluatePercentage(
-                  expression: context.read<KeypadCubit>().getExpression());
-              context.read<KeypadCubit>().resetExpression();
+              calculationController.evaluatePercentage(
+                  expression: keypController.currentExpression());
+              keypController.resetExpression();
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -84,9 +82,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: ColorCodes.ORANGE_COLOR, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.DIVIDE);
+              keypController.updateExpression(expression: Strings.DIVIDE);
             }),
       ],
     );
@@ -103,9 +99,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.KEYPAD_7);
+              keypController.updateExpression(expression: Strings.KEYPAD_7);
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -114,9 +108,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.KEYPAD_8);
+              keypController.updateExpression(expression: Strings.KEYPAD_8);
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -125,9 +117,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.KEYPAD_9);
+              keypController.updateExpression(expression: Strings.KEYPAD_9);
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -136,9 +126,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: ColorCodes.ORANGE_COLOR, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.MULTIPLY);
+              keypController.updateExpression(expression: Strings.MULTIPLY);
             })
       ],
     );
@@ -155,9 +143,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.KEYPAD_4);
+              keypController.updateExpression(expression: Strings.KEYPAD_4);
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -166,9 +152,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.KEYPAD_5);
+              keypController.updateExpression(expression: Strings.KEYPAD_5);
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -177,9 +161,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.KEYPAD_6);
+              keypController.updateExpression(expression: Strings.KEYPAD_6);
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -188,9 +170,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: ColorCodes.ORANGE_COLOR, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.MINUS);
+              keypController.updateExpression(expression: Strings.MINUS);
             })
       ],
     );
@@ -207,9 +187,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.KEYPAD_1);
+              keypController.updateExpression(expression: Strings.KEYPAD_1);
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -218,9 +196,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.KEYPAD_2);
+              keypController.updateExpression(expression: Strings.KEYPAD_2);
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -229,9 +205,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.KEYPAD_3);
+              keypController.updateExpression(expression: Strings.KEYPAD_3);
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -240,9 +214,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: ColorCodes.ORANGE_COLOR, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.PLUS);
+              keypController.updateExpression(expression: Strings.PLUS);
             })
       ],
     );
@@ -261,9 +233,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.KEYPAD_0);
+              keypController.updateExpression(expression: Strings.KEYPAD_0);
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -272,9 +242,7 @@ class KeyPadWidget extends StatelessWidget {
                   color: Theme.of(context).primaryColor, textSize: 17.0.sp),
             ),
             onTap: () {
-              context
-                  .read<KeypadCubit>()
-                  .updateExpression(expression: Strings.POINT);
+              keypController.updateExpression(expression: Strings.POINT);
             }),
         CustomNeumorphicButton(
             child: Text(
@@ -284,10 +252,10 @@ class KeyPadWidget extends StatelessWidget {
             ),
             onTap: () {
               if (Utils.checkMathematicalExpression(
-                  context.read<KeypadCubit>().getExpression())) {
-                context.read<CalculationCubit>().evaluateExpression(
-                    expression: context.read<KeypadCubit>().getExpression());
-                context.read<KeypadCubit>().resetExpression();
+                  keypController.currentExpression())) {
+                calculationController.evaluateExpression(
+                    expression: keypController.currentExpression());
+                keypController.resetExpression();
               } else {
                 showDialog(
                     context: context,

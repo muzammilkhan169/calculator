@@ -14,8 +14,8 @@ class CalculatorScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(15),
       child: Column(
-        children: const [
-          Expanded(
+        children: [
+          const Expanded(
             child: CalculatorDisplayWidget(),
             flex: 2,
           ),
